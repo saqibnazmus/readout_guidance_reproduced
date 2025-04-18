@@ -1,0 +1,32 @@
+model_path: runwayml/stable-diffusion-v1-5
+batch_size: 2
+seed: 100
+num_frames: 2
+fps: 1
+rg_kwargs:
+- head_type: appearance
+  loss_rescale: 1.0
+  aggregation_kwargs:
+    aggregation_ckpt: weights/readout_sdv15_drag_appearance.pt
+- head_type: correspondence
+  loss_rescale: 1.0
+  use_emb: false
+  aggregation_kwargs:
+    aggregation_ckpt: weights/readout_sdv15_drag_correspondence.pt
+generation_kwargs:
+  text_weight:
+  - 1.0
+  - 3.5
+  rg_weight: 0.02
+  rg_ratio:
+  - 0.0
+  - 0.5
+  eta: 0.0
+  num_timesteps: 100
+  negative_prompt: poorly drawn, ugly, tiling, out of frame, mutation, mutated, extra
+    limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame,
+    blurry, bad art, bad anatomy, blurred, text, watermark, grainy,  writing, calligraphy,
+    sign, cut off
+run_ddim_inversion: true
+output_dir: results/drag/real
+points_root: data/drag/real

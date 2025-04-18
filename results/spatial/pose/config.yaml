@@ -1,0 +1,25 @@
+model_path: stabilityai/stable-diffusion-xl-base-1.0
+control_type: pose
+batch_size: 2
+seed: 100
+num_frames: 1
+rg_kwargs:
+- head_type: spatial
+  loss_rescale: 0.5
+  aggregation_kwargs:
+    aggregation_ckpt: weights/readout_sdxl_spatial_${control_type}.pt
+generation_kwargs:
+  text_weight: 7.5
+  rg_weight: 0.02
+  rg_ratio:
+  - 0.0
+  - 0.5
+  eta: 1.0
+  num_timesteps: 100
+  negative_prompt: poorly drawn, ugly, tiling, out of frame, mutation, mutated, extra
+    limbs, extra legs, extra arms, disfigured, deformed, cross-eye, body out of frame,
+    blurry, bad art, bad anatomy, blurred, text, watermark, grainy,  writing, calligraphy,
+    sign, cut off
+output_dir: results/spatial/${control_type}
+prompt_file: annotations/spatial/${control_type}.json
+control_root: data/spatial/${control_type}
