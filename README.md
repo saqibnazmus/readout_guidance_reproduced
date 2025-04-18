@@ -1,11 +1,6 @@
-# 🔮 Readout Guidance: Learning Control from Diffusion Features
+# 🔮 Readout Guidance: Learning Control from Diffusion Features (reproduced)
 **Grace Luo, Trevor Darrell, Oliver Wang, Dan B Goldman, Aleksander Holynski**
-
-This repository contains the PyTorch implementation of Readout Guidance: Learning Control from Diffusion Features.
-
-*This is not an officially supported Google product.*
-
-[[`Project Page`](https://readout-guidance.github.io)][[`arXiv`](https://arxiv.org/abs/2312.02150)]
+## CVPR 2024 (Highlight)
 
 ## Releases
 - 🚀 2024/04/26: Additional code for pose estimation with readout heads in the [readout_pose](readout_pose) directory.
@@ -38,27 +33,18 @@ Note that the generation process is non-deterministic, even without Readout Guid
 - `demo_drag.ipynb`: This demo walks through drag-based manipulation on either real images or generated images, where the user can also annotate the desired drags.
 - `demo_spatial.ipynb`: This demo walks through spatial control with the pose head on pose inputs derived from MSCOCO images.
 
-## Generation Scripts
-You can also automatically generate many samples using the following scripts.
-```
-conda activate readout
 
-# Run drag-based manipulation on samples in data/drag/real
-python3 script_drag.py configs/drag_real.yaml
+## What I reproduced 
 
-# Run spatial control on samples in data/spatial/pose
-python3 script_spatial.py configs/spatial.yaml
-```
+Dragging(reproduced)
 
-## Training Code
-To train your own readout heads, please check out `readout_training/README.md`.
+``
+drag_saqib.ipynb
+``
 
-## Citing
-```
-@inproceedings{luo2024readoutguidance,
-    title={Readout Guidance: Learning Control from Diffusion Features},
-    author={Grace Luo and Trevor Darrell and Oliver Wang and Dan B Goldman and Aleksander Holynski},
-    journal={CVPR},
-    year={2024}
-}
-```
+Spatial(reproduced)
+
+``
+drag_spatial.ipynb
+``
+
